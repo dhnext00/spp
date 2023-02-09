@@ -1,42 +1,63 @@
+<?php
+  session_start();
+  if(!empty($_SESSION['username'])){
+  header("Location:dashboard");
+  }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="shortcut icon" href="assets/image/logo.ico">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+<title>SPP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="assets/image/logo.ico">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h5 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('assets/image/upacara.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
 </head>
-<body class="bg-primary">
-    <img src="assets/image/logosekolah.png" style="margin-left: 90%;">
-    <div class="p-3 mb-2 text-white" style="margin-top: 1%">
-    <div id="card">
-        <div id="card-content" class="container text-center">
-            <div class="row align-items-center">
-            <div id="card-title"><h1>LOGIN</h1></div>
-        </div>
+<body>
 
-    <form action="proses/proses_login.php">
-    <div class="mb-3 col-md-5 text-center" style="margin-top: 5%;">
-        <label for="username" class="form-label">Username</label>
-        <span class="material-symbols-outlined">
-        <input type="text" class="form-control" id="username" placeholder="Username"/>
-        </span>
-      </div>
 
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+<div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-middle w3-jumbo">
+  <img class="w3-circle" src="assets/image/logospp.png">
+  </div>
+  <div class="w3-display-topleft w3-container w3-xlarge">
+    <p><button onclick="document.getElementById('login').style.display='block'" class="w3-button w3-black">Login</button></p>
+  </div>
+  <div class="w3-display-bottomleft w3-container">
+    <p class="w3-xlarge">monday - friday 10-23 | saturday 14-02</p>
+    <p class="w3-large">42 village St, New York</p>
+    <p>powered by dhini<a href="assets/image/logo.ico" target="_blank"> </a></p>
+  </div>
+</div>
 
-        <div class="vstack gap-2 col-md-5 mx-auto bg-black" style="margin-top: 5%;">
-            <button type="button" class="btn btn-outline-secondary text-white">Submit</button>
-          </div>
-      </div>
-      
-    </form>
-      </div>
-      </div>
+<!-- login Modal -->
+<div id="login" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('login').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Login</h1>
+    </div>
+    <div class="w3-container">
+      <p>Login untuk masuk ke halaman :</p>
+      <form action="proses/proses_login.php" method="POST">
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Username" required name="username"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="password" placeholder="Password" required name="password"></p>
+        <p><button class="w3-button" type="submit">Submit</button></p>
+      </form>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
