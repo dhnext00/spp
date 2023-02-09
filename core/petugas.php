@@ -60,13 +60,6 @@
         }
 
         public function editPetugas($id_petugas,$username, $password, $nama_petugas, $level){
-            $query = mysqli_query($this->koneksi,"SELECT * FROM petugas WHERE username = '$username', password = '$password', nama_petugas = '$nama_petugas' AND level = '$level'");
-            $result = mysqli_fetch_array($query);
-            if($result['username'] == $username && $result['password'] == $password && $result['nama_petugas'] == $nama_petugas && $result['level'] == '$level'){
-                session_start();
-                $_SESSION['msg'] = "Data petugas sudah ada !!!";
-                header("Location: ../dashboard?url=petugas");
-            }else{
                 $this->id_petugas = $id_petugas;
                 $this->username = $username;
                 $this->password = $password;
@@ -76,7 +69,6 @@
                 session_start();
                 $_SESSION['msg'] = "Data petugas berhasil di ubah";
                 header("Location: ../dashboard?url=petugas");
-            }
         }
 
         public function hapusPetugas($id_petugas){

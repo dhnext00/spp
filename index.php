@@ -25,7 +25,15 @@ body, html {height: 100%}
 </style>
 </head>
 <body>
-
+<?php 
+      if (isset($_SESSION["msg"]) && !empty($_SESSION["msg"])) {
+      $msg = $_SESSION["msg"];
+      echo "<div class='w3-container w3-panel w3-green'>";
+      echo "<h2 class='w3-center'>" . $msg . "</h2>";
+      echo "</div>";
+      unset($_SESSION['msg']);
+      }
+  ?>
 
 <div class="bgimg w3-display-container w3-text-white">
   <div class="w3-display-middle w3-jumbo">
@@ -49,11 +57,11 @@ body, html {height: 100%}
       <h1>Login</h1>
     </div>
     <div class="w3-container">
-      <p>Login untuk masuk ke halaman :</p>
+      <p>Login untuk masuk ke halaman :</p> 
       <form action="proses/proses_login.php" method="POST">
         <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Username" required name="username"></p>
         <p><input class="w3-input w3-padding-16 w3-border" type="password" placeholder="Password" required name="password"></p>
-        <p><button class="w3-button" type="submit">Submit</button></p>
+        <p><button class="w3-button w3-black" type="submit">Submit</button></p>
       </form>
     </div>
   </div>

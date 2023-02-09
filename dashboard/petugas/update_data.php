@@ -9,7 +9,7 @@
 <form action="../proses/proses_editpetugas.php" method="POST">
     <input type="hidden" name="id_petugas" value="<?= $petugas['id_petugas'] ?>">
     <label for="username">Username</label>
-    <input class="w3-input" type="text" name="username" value="<?= $petugas['username'] ?>">        
+    <input class="w3-input" type="text" name="username" value="<?= $petugas['username'] ?>" readonly>        
     <br>
     <label for="password">Password</label>
     <input class="w3-input" type="password" name="password" value="<?= $petugas['password'] ?>">        
@@ -19,7 +19,7 @@
     <br>
     <label for="level">Level</label>
     <select class="w3-input" name="level">
-        <option value="<?= $petugas['level']?>" disabled selected><?= $petugas['level']?></option>
+        <option value="<?= $petugas['level']?>"><?= $petugas['level']?></option>
         <option value="admin">Admin</option>
         <option value="petugas">Petugas</option>
     </select>

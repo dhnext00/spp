@@ -4,7 +4,7 @@
     if(isset($_POST['submit'])){
         $id_petugas = $_POST['id_petugas'];
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
         $nama_petugas = $_POST['nama_petugas'];
         $level = $_POST['level'];
         $petugas->editPetugas($id_petugas,$username,$password,$nama_petugas, $level);
